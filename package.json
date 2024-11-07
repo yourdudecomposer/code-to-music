@@ -13,5 +13,13 @@
   },
   "devDependencies": {
     "@types/node": "^22.9.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourdudecomposer/code-to-music.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourdudecomposer/code-to-music/issues"
+  },
+  "homepage": "https://github.com/yourdudecomposer/code-to-music#readme"
 }
