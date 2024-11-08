@@ -1,27 +1,33 @@
-import { Melody } from "../types/notes";
+import { Channel } from "easymidi";
+import { Note } from "../types/notes";
 import { getAbsoluteDuration } from "../utils/getAbsoluteDuration";
 import { pitchMap } from "../utils/pitchMap";
 import { produceOneNote } from "./produceOneNote";
 
-export const produceMelody = (melody: Melody) => {
-  const absoluteDurations = melody.scores.map((note) =>
+export const produceMelody = (
+  melody: Note[],
+  tempo: number = 100,
+  channel: Channel = 0
+) => {
+  const absoluteDurations = melody.map((note) =>
     getAbsoluteDuration({
-      tempo: melody.tempo,
+      tempo,
       relativeDuration: note.duration,
     })
   );
 
-  const pitches = melody.scores.map((note) => pitchMap[note.pitch]);
+  const pitches = melody.map((note) => pitchMap[note.pitch]);
 
-  reqTimer(melody, 0, absoluteDurations, pitches);
+  reqTimer(melody, 0, absoluteDurations, pitches, channel);
 
   function reqTimer(
-    melody: Melody,
+    melody: Note[],
     currPosition: number,
     durations: number[],
-    pitches: number[]
+    pitches: number[],
+    channel: Channel
   ) {
-    if (currPosition >= melody.scores.length) {
+    if (currPosition >= melody.length) {
       return;
     }
 
@@ -29,12 +35,12 @@ export const produceMelody = (melody: Melody) => {
     produceOneNote({
       duration: durations[currPosition],
       pitch: pitches[currPosition],
-      channel: melody.channel,
+      channel,
     });
 
     // Вызов следующей ноты через абсолютную длительность
     setTimeout(
-      () => reqTimer(melody, currPosition + 1, durations, pitches),
+      () => reqTimer(melody, currPosition + 1, durations, pitches, channel),
       durations[currPosition]
     );
   }

@@ -1,11 +1,12 @@
 import { Channel } from "easymidi";
 
-export type Note = {
+export type NoteForEasymidi = {
   duration: number;
   pitch: number;
   channel?: Channel;
 };
-export type NoteWithRelativeDuration = {
+
+export type Note = {
   duration: RelativeDuration;
   pitch: NoteName;
 };
@@ -134,9 +135,3 @@ export type NoteName =
   | "A#6"
   | "Bb6"
   | "B6";
-
-export type Melody = {
-  scores: NoteWithRelativeDuration[];
-  tempo: number;
-  channel?: Channel;
-};
