@@ -20,6 +20,15 @@
     "type": "git",
     "url": "git+https://github.com/yourdudecomposer/code-to-music.git"
   },
+  "keywords": [
+    "midi",
+    "MIDI",
+    "music",
+    "melody",
+    "audio",
+    "midi2",
+    "audio"
+  ],
   "bugs": {
     "url": "https://github.com/yourdudecomposer/code-to-music/issues"
   },
