@@ -13,6 +13,35 @@ export type Note = {
 
 export type RelativeDuration = 1 | 2 | 4 | 8 | 16;
 
+export type RelativeDurationByName =
+  | "1"
+  | "1d"
+  | "1dd"
+  | "1/2"
+  | "1/2d"
+  | "1/2dd"
+  | "1/4"
+  | "1/4d"
+  | "1/4dd"
+  | "1/8"
+  | "1/8d"
+  | "1/8dd"
+  | "1/16"
+  | "1/16d"
+  | "1/16dd"
+  | "1/32"
+  | "1/32d"
+  | "1/32dd"
+  | "1/64"
+  | "1/64d"
+  | "1/64dd"
+  | "1/128"
+  | "1/128d"
+  | "1/128dd"
+  | "1/256"
+  | "1/256d"
+  | "1/256dd";
+
 export type Scale = "major" | "minor";
 
 export type NoteName =

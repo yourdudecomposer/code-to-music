@@ -1,4 +1,4 @@
-import { NoteName } from "../types/notes";
+import { NoteName, RelativeDurationByName } from "../types/notes";
 
 export const pitchMap: Record<NoteName, number> = {
   C0: 12,
@@ -207,4 +207,34 @@ export const pitchMapReverse: Record<number, NoteName> = {
   93: "A6",
   94: "A#6",
   95: "B6",
+};
+
+export const durationMap: Record<RelativeDurationByName, number> = {
+  "1dd": 1.75,
+  "1d": 1.5,
+  "1": 1,
+  "1/2dd": 0.875,
+  "1/2d": 0.75,
+  "1/2": 0.5,
+  "1/4dd": 0.4375,
+  "1/4d": 0.375,
+  "1/4": 0.25,
+  "1/8dd": 0.21875,
+  "1/8d": 0.1875,
+  "1/8": 0.125,
+  "1/16dd": 0.109375,
+  "1/16d": 0.09375,
+  "1/16": 0.0625,
+  "1/32dd": 0.0546875,
+  "1/32d": 0.046875,
+  "1/32": 0.03125,
+  "1/64dd": 0.02734375,
+  "1/64d": 0.0234375,
+  "1/64": 0.015625,
+  "1/128dd": 0.013671875,
+  "1/128d": 0.01171875,
+  "1/128": 0.0078125,
+  "1/256dd": 0.0068359375,
+  "1/256d": 0.005859375,
+  "1/256": 0.00390625,
 };

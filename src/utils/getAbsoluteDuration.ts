@@ -1,11 +1,12 @@
-import { RelativeDuration } from "../types/notes";
+import { RelativeDuration, RelativeDurationByName } from "../types/notes";
+import { durationMap } from "./pitchMap";
 
 export const getAbsoluteDuration = ({
   relativeDuration,
   tempo,
   baseRelativeDuration = 4,
 }: {
-  relativeDuration: RelativeDuration;
+  relativeDuration: RelativeDuration | RelativeDurationByName;
   tempo: number;
   baseRelativeDuration?: RelativeDuration;
 }) => {
@@ -30,5 +31,9 @@ export const getAbsoluteDuration = ({
       break;
   }
 
-  return coefficient / tempo / relativeDuration;
+  if (typeof relativeDuration === "number") {
+    return coefficient / tempo / relativeDuration;
+  } else {
+    return (coefficient / tempo) * durationMap[relativeDuration];
+  }
 };
