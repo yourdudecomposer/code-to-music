@@ -7,11 +7,13 @@ export type NoteForEasymidi = {
 };
 
 export type Note = {
-  duration: RelativeDuration | RelativeDurationByName;
+  duration: RelativeDuration | RelativeDurationByName | AbsoluteDuration;
   pitch: NoteName;
 };
 
 export type RelativeDuration = 1 | 2 | 4 | 8 | 16;
+
+export type AbsoluteDuration = number;
 
 export type RelativeDurationByName =
   | "1"

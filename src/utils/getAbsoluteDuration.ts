@@ -9,7 +9,7 @@ export const getAbsoluteDuration = ({
   relativeDuration: RelativeDuration | RelativeDurationByName;
   tempo: number;
   baseRelativeDuration?: RelativeDuration;
-}) => {
+}): number => {
   let coefficient: number;
 
   switch (baseRelativeDuration) {
